@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DashboardTools", "DashboardTools.csproj", "{C454E771-ED0D-4C35-93B6-1B0D681CCFDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeboardTools", "..\FreeboardTools\FreeboardTools.csproj", "{093C2651-4805-425A-B911-D78843E3154A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C454E771-ED0D-4C35-93B6-1B0D681CCFDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C454E771-ED0D-4C35-93B6-1B0D681CCFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C454E771-ED0D-4C35-93B6-1B0D681CCFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C454E771-ED0D-4C35-93B6-1B0D681CCFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{093C2651-4805-425A-B911-D78843E3154A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{093C2651-4805-425A-B911-D78843E3154A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{093C2651-4805-425A-B911-D78843E3154A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{093C2651-4805-425A-B911-D78843E3154A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
