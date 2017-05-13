@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+
+</head>
+<body class="LTR Safari Chrome Safari39 Chrome39 ENUS ContentBody">
+	<div id="pageContainer" class="container">
+		<div id="logoSearchContainer-top" class="row">
+			<div id="logoContainer-top" class="col-md-8">
+				<img src="http://us-01.kenticolab.com/Web070425/CMSPages/GetFile.aspx?nodeguid=fe3a8463-b17b-4b1e-8575-a0c4f49df38f&lang=en-US" alt="Colorado State University" />
+				<img src="http://us-01.kenticolab.com/Web070425/CMSPages/GetFile.aspx?nodeguid=cb4dcad2-d813-4899-a014-f5ce424d8aae&lang=en-US" alt="College of Business" />
+			</div>
+			<div id="logoContainer-top" class="col-md-4">
+				search
+				<cms:cmswebpartzone zoneid="searchZone-top" runat="server" />
+			</div>
+		</div>
+		<div id="sectionTitleNavContainer-top" class="row">
+			<div id="sectionTitleContainer-top" class="col-md-4 top-sectionTitle">
+				<cms:cmswebpartzone zoneid="sectionTitleZone" runat="server" />
+			</div>
+			<div id="navContainer-top" class="col-md-8">
+				for:nav
+				<span class="nav-top"><cms:cmswebpartzone zoneid="navZone-top" runat="server" /></span>
+			</div>
+		</div>
+		<div id="bodyContainer" class="row">
+			bory
+			<cms:cmswebpartzone zoneid="zoneContent" runat="server" />
+		</div>
+		<div id="footerContainer" class="row">
+			foot
+			<cms:cmswebpartzone zoneid="footerContent" runat="server" />
+		</div>
+	</div>
+
+
+	
+</body>
+</html>

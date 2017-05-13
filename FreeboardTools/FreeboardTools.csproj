@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,10 +54,76 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\FreeboardTools.dll" />
+    <Content Include="bin\FreeboardTools.pdb" />
+    <Content Include="css\freeboard.css" />
+    <Content Include="css\freeboard.min.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
+    <Content Include="docs\docco-fb.css" />
+    <Content Include="docs\docco.css" />
+    <Content Include="docs\plugin_example.html" />
+    <Content Include="docs\public\images\gray.png" />
+    <Content Include="docs\public\stylesheets\normalize.css" />
+    <Content Include="examples\plugin_example.js" />
+    <Content Include="img\dropdown-arrow.png" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="index-dev.html" />
+    <Content Include="index.html" />
+    <Content Include="js\freeboard+plugins.js" />
+    <Content Include="js\freeboard+plugins.min.js" />
+    <Content Include="js\freeboard.js" />
+    <Content Include="js\freeboard.min.js" />
+    <Content Include="js\freeboard.plugins.js" />
+    <Content Include="js\freeboard.plugins.min.js" />
+    <Content Include="js\freeboard.thirdparty.js" />
+    <Content Include="js\freeboard.thirdparty.min.js" />
+    <Content Include="lib\css\freeboard\styles.css" />
+    <Content Include="lib\css\thirdparty\codemirror-ambiance.css" />
+    <Content Include="lib\css\thirdparty\codemirror.css" />
+    <Content Include="lib\css\thirdparty\jquery.gridster.min.css" />
+    <Content Include="lib\js\freeboard\DatasourceModel.js" />
+    <Content Include="lib\js\freeboard\DeveloperConsole.js" />
+    <Content Include="lib\js\freeboard\DialogBox.js" />
+    <Content Include="lib\js\freeboard\freeboard.js" />
+    <Content Include="lib\js\freeboard\FreeboardModel.js" />
+    <Content Include="lib\js\freeboard\FreeboardUI.js" />
+    <Content Include="lib\js\freeboard\JSEditor.js" />
+    <Content Include="lib\js\freeboard\PaneModel.js" />
+    <Content Include="lib\js\freeboard\PluginEditor.js" />
+    <Content Include="lib\js\freeboard\ValueEditor.js" />
+    <Content Include="lib\js\freeboard\WidgetModel.js" />
+    <Content Include="lib\js\thirdparty\codemirror.js" />
+    <Content Include="lib\js\thirdparty\d3.geo.projection.v0.min.js" />
+    <Content Include="lib\js\thirdparty\d3.v3.min.js" />
+    <Content Include="lib\js\thirdparty\dimple.v2.1.0.min.js" />
+    <Content Include="lib\js\thirdparty\dimple.v2.1.3.min.js" />
+    <Content Include="lib\js\thirdparty\head.js" />
+    <Content Include="lib\js\thirdparty\isotope.pkgd.min.js" />
+    <Content Include="lib\js\thirdparty\jquery-ui.js" />
+    <Content Include="lib\js\thirdparty\jquery.caret.js" />
+    <Content Include="lib\js\thirdparty\jquery.gridster.js" />
+    <Content Include="lib\js\thirdparty\jquery.js" />
+    <Content Include="lib\js\thirdparty\jquery.xdomainrequest.js" />
+    <Content Include="lib\js\thirdparty\knockout.js" />
+    <Content Include="lib\js\thirdparty\queue.v1.min.js" />
+    <Content Include="lib\js\thirdparty\topojson.v1.min.js" />
+    <Content Include="lib\js\thirdparty\underscore.js" />
+    <Content Include="obj\Debug\FreeboardTools.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\FreeboardTools.dll" />
+    <Content Include="obj\Debug\FreeboardTools.pdb" />
+    <Content Include="plugins\cob\D3Geo.js" />
+    <Content Include="plugins\cob\DimpleGraphs.js" />
+    <Content Include="plugins\cob\IsotopeReports.js" />
+    <Content Include="plugins\cob\Weather.js" />
+    <Content Include="plugins\freeboard\freeboard.datasources.js" />
+    <Content Include="plugins\freeboard\freeboard.widgets.js" />
+    <Content Include="plugins\thirdparty\jquery.sparkline.min.js" />
+    <Content Include="plugins\thirdparty\justgage.1.0.1.js" />
+    <Content Include="plugins\thirdparty\raphael.2.1.0.min.js" />
+    <Content Include="test.html" />
+    <Content Include="test\casper\tests\smoke_test.js" />
+    <Content Include="test\casper\util\test_util.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -71,8 +138,36 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\FreeboardTools.dll.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\FreeboardTools.csprojResolveAssemblyReference.cache" />
+    <Content Include="test\run_browser_tests.sh" />
+    <Content Include="docs\build-docs.sh" />
+    <Content Include="docs\public\fonts\aller-bold.eot" />
+    <Content Include="docs\public\fonts\aller-bold.ttf" />
+    <Content Include="docs\public\fonts\aller-bold.woff" />
+    <Content Include="docs\public\fonts\aller-light.eot" />
+    <Content Include="docs\public\fonts\aller-light.ttf" />
+    <Content Include="docs\public\fonts\aller-light.woff" />
+    <Content Include="docs\public\fonts\fleurons.eot" />
+    <Content Include="docs\public\fonts\fleurons.ttf" />
+    <Content Include="docs\public\fonts\fleurons.woff" />
+    <Content Include="docs\public\fonts\novecento-bold.eot" />
+    <Content Include="docs\public\fonts\novecento-bold.ttf" />
+    <Content Include="docs\public\fonts\novecento-bold.woff" />
+    <Content Include="examples\rl78.json" />
+    <Content Include="examples\weather.json" />
+    <Content Include="js\freeboard+plugins.min.js.map" />
+    <Content Include="js\freeboard.min.js.map" />
+    <Content Include="js\freeboard.plugins.min.js.map" />
+    <Content Include="lib\js\thirdparty\underscore-min.map" />
+    <Content Include="lib\js\thirdparty\world-110m.json" />
+    <Content Include="lib\js\thirdparty\world-50m.json" />
+    <Content Include="lib\js\thirdparty\world-country-names.tsv" />
+    <Content Include="test\fixtures\input.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
