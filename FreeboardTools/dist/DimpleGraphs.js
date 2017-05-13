@@ -1,4 +1,4 @@
-﻿// Best to encapsulate your plugin in a closure, although not required.
+// Best to encapsulate your plugin in a closure, although not required.
 (function()
 {
 	// create variable to track dimple plugins so that a unique Id can be assigned to each instance
@@ -17,7 +17,7 @@
 		// **fill_size** : If this is set to true, the widget will fill be allowed to fill the entire space given it, otherwise it will contain an automatic padding of around 10 pixels around it.
 		"fill_size": false,
 		// load external scripts
-		"external_scripts": ["https://fishboy42.github.io/DasboardTools/FreeboardTools/dist/dimple.v2.1.3.min.js"],
+		"external_scripts": ["https://fishboy42.github.io/DasboardTools/FreeboardTools/lib/js/thirdparty/dimple.v2.1.3.min.js"],
 
 		"settings": [
 				{
@@ -541,4 +541,5 @@
 
 		}
 	}
+
 }());
