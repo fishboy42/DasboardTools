@@ -59,6 +59,8 @@
     <Content Include="css\freeboard.css" />
     <Content Include="css\freeboard.min.css" />
     <Content Include="Default.aspx" />
+    <Content Include="dist\dimple.v2.1.3.min.js" />
+    <Content Include="dist\DimpleGraphs.js" />
     <Content Include="docs\docco-fb.css" />
     <Content Include="docs\docco.css" />
     <Content Include="docs\plugin_example.html" />

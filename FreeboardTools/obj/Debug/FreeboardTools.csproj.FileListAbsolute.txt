@@ -9,3 +9,9 @@ C:\Users\Sean\SkyDrive\Work\GoogleFriday\GitHub\DasboardTools\FreeboardTools\bin
 C:\Users\Sean\SkyDrive\Work\GoogleFriday\GitHub\DasboardTools\FreeboardTools\obj\Debug\FreeboardTools.csprojResolveAssemblyReference.cache
 C:\Users\Sean\SkyDrive\Work\GoogleFriday\GitHub\DasboardTools\FreeboardTools\obj\Debug\FreeboardTools.dll
 C:\Users\Sean\SkyDrive\Work\GoogleFriday\GitHub\DasboardTools\FreeboardTools\obj\Debug\FreeboardTools.pdb
+C:\Users\Sean\Documents\GitHubVisualStudio\DasboardTools\FreeboardTools\bin\FreeboardTools.dll.config
+C:\Users\Sean\Documents\GitHubVisualStudio\DasboardTools\FreeboardTools\bin\FreeboardTools.dll
+C:\Users\Sean\Documents\GitHubVisualStudio\DasboardTools\FreeboardTools\bin\FreeboardTools.pdb
+C:\Users\Sean\Documents\GitHubVisualStudio\DasboardTools\FreeboardTools\obj\Debug\FreeboardTools.csprojResolveAssemblyReference.cache
+C:\Users\Sean\Documents\GitHubVisualStudio\DasboardTools\FreeboardTools\obj\Debug\FreeboardTools.dll
+C:\Users\Sean\Documents\GitHubVisualStudio\DasboardTools\FreeboardTools\obj\Debug\FreeboardTools.pdb
