@@ -8,11 +8,11 @@
 	freeboard.addStyle('.dimple-title, .dimple-axis text, .dimple-legend-text', "fill: #B88F51;");
 	freeboard.addStyle('.domain, .dimple-axis .tick line', "stroke: #999 !important;");
 
-	// ## DimpleJS Multiple Line Chart
+	// ## DimpleJS Advanced Chart
 	freeboard.loadWidgetPlugin({
 		// Same stuff here as with datasource plugin.
 		"type_name": "dimplejs-chart",
-		"display_name": "DimpleJS Chart",
+		"display_name": "DimpleJS Advanced Chart",
 		"description": "Some sort of description <strong>with optional html!</strong>",
 		// **fill_size** : If this is set to true, the widget will fill be allowed to fill the entire space given it, otherwise it will contain an automatic padding of around 10 pixels around it.
 		"fill_size": false,
@@ -28,7 +28,8 @@
 							{ "name": "Bar", "value": "dimple.plot.bar" },
 							{ "name": "Pie", "value": "dimple.plot.pie" },
 							{ "name": "Line", "value": "dimple.plot.line" },
-							{ "name": "Area", "value": "dimple.plot.area" }
+							{ "name": "Area", "value": "dimple.plot.area" },
+							{ "name": "Bubble", "value": "dimple.plot.bubble" }
 						]
 				},
 				{
@@ -300,6 +301,963 @@
 			newInstanceCallback(new dimpleJSChart(settings));
 		}
 	});
+
+    // ## DimpleJS Pie Chart
+	freeboard.loadWidgetPlugin({
+	    // Same stuff here as with datasource plugin.
+	    "type_name": "dimplejs-pie-chart",
+	    "display_name": "DimpleJS Pie Chart",
+	    "description": "Some sort of description <strong>with optional html!</strong>",
+	    // **fill_size** : If this is set to true, the widget will fill be allowed to fill the entire space given it, otherwise it will contain an automatic padding of around 10 pixels around it.
+	    "fill_size": false,
+	    // load external scripts
+	    "external_scripts": ["./lib/js/thirdparty/dimple.v2.1.3.min.js"],
+
+	    "settings": [
+				{
+				    "name": "title",
+				    "display_name": "Title",
+				    "type": "text"
+				},
+				{
+				    "name": "data",
+				    "display_name": "Data",
+				    "type": "calculated"
+				},
+				{
+				    "name": "p-axis",
+				    "display_name": "P Axis",
+				    "description": "Value column used for pie type charts",
+				    "type": "text"
+				},
+				{
+				    "name": "p-axisType",
+				    "display_name": "P Axis Type",
+				    "description": "Indicates data type of p axis for pie-type charts",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "p-axis-order-rules",
+				    "display_name": "P Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order p-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "p-axis-order-descending",
+				    "display_name": "P Axis Order Descending",
+				    "description": "Order p-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "categories",
+				    "display_name": "Categories",
+				    "type": "text"
+				},
+				{
+				    "name": "category-order-rules",
+				    "display_name": "Category Order Rules",
+				    "description": "Attribute name, array, or function to use to order Categories.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "category-order-descending",
+				    "display_name": "Category Order Descending",
+				    "description": "Order categories in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "bounds",
+				    "display_name": "Chart Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+				{
+				    "name": "legend",
+				    "display_name": "Legend Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+
+				{
+				    "name": "size",
+				    "display_name": "Size",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Regular",
+						    "value": "regular"
+						},
+						{
+						    "name": "Big",
+						    "value": "big"
+						},
+						{
+						    "name": "Huge",
+						    "value": "huge"
+						}
+
+				    ]
+				}
+
+	    ],
+	    // Same as with datasource plugin, but there is no updateCallback parameter in this case.
+	    newInstance: function (settings, newInstanceCallback) {
+	        settings.chartType = "dimple.plot.pie";
+	        newInstanceCallback(new dimpleJSChart(settings));
+	    }
+	});
+
+    // ## DimpleJS Bar Chart
+	freeboard.loadWidgetPlugin({
+	    // Same stuff here as with datasource plugin.
+	    "type_name": "dimplejs-bar-chart",
+	    "display_name": "DimpleJS Bar Chart",
+	    "description": "Some sort of description <strong>with optional html!</strong>",
+	    // **fill_size** : If this is set to true, the widget will fill be allowed to fill the entire space given it, otherwise it will contain an automatic padding of around 10 pixels around it.
+	    "fill_size": false,
+	    // load external scripts
+	    "external_scripts": ["./lib/js/thirdparty/dimple.v2.1.3.min.js"],
+
+	    "settings": [
+				{
+				    "name": "title",
+				    "display_name": "Title",
+				    "type": "text"
+				},
+				{
+				    "name": "data",
+				    "display_name": "Data",
+				    "type": "calculated"
+				},
+				{
+				    "name": "x-axis",
+				    "display_name": "X Axis",
+				    "description": "comma separated list of data attrubutes to use for x axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "x-axisType",
+				    "display_name": "X Axis Type",
+				    "description": "Indicates data type of X axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Category Axis",
+						    "value": "category"
+						},
+						{
+						    "name": "Time Axis",
+						    "value": "time"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "x-axisOptions",
+				    "display_name": "X Axis Options",
+				    "description": "options for axis types: Percent (categories), Time (inputFormat, outputFormat), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "x-axis-order-rules",
+				    "display_name": "X Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order x-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "x-axis-order-descending",
+				    "display_name": "X Axis Order Descending",
+				    "description": "Order x-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "y-axis",
+				    "display_name": "Y Axis",
+				    "description": "comma separated list of data attrubutes to use for y axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "y-axisType",
+				    "display_name": "Y Axis Type",
+				    "description": "Indicates data type of Y axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Category Axis",
+						    "value": "category"
+						},
+						{
+						    "name": "Time Axis",
+						    "value": "time"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "y-axisOptions",
+				    "display_name": "Y Axis Options",
+				    "description": "options for axis types: Percent (categories), Time (inputFormat, outputFormat), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "y-axis-order-rules",
+				    "display_name": "Y Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order y-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "y-axis-order-descending",
+				    "display_name": "Y Axis Order Descending",
+				    "description": "Order y-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "categories",
+				    "display_name": "Categories",
+				    "type": "text"
+				},
+				{
+				    "name": "category-order-rules",
+				    "display_name": "Category Order Rules",
+				    "description": "Attribute name, array, or function to use to order Categories.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "category-order-descending",
+				    "display_name": "Category Order Descending",
+				    "description": "Order categories in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "chart-smoothing",
+				    "display_name": "Smooth Chart",
+				    "description": "Add smoothing to graph lines (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "bounds",
+				    "display_name": "Chart Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+				{
+				    "name": "legend",
+				    "display_name": "Legend Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+
+				{
+				    "name": "size",
+				    "display_name": "Size",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Regular",
+						    "value": "regular"
+						},
+						{
+						    "name": "Big",
+						    "value": "big"
+						},
+						{
+						    "name": "Huge",
+						    "value": "huge"
+						}
+
+				    ]
+				}
+
+	    ],
+	    // Same as with datasource plugin, but there is no updateCallback parameter in this case.
+	    newInstance: function (settings, newInstanceCallback) {
+	        settings.chartType = "dimple.plot.bar";
+	        newInstanceCallback(new dimpleJSChart(settings));
+	    }
+	});
+
+    // ## DimpleJS Line Chart
+	freeboard.loadWidgetPlugin({
+	    // Same stuff here as with datasource plugin.
+	    "type_name": "dimplejs-line-chart",
+	    "display_name": "DimpleJS Line Chart",
+	    "description": "Some sort of description <strong>with optional html!</strong>",
+	    // **fill_size** : If this is set to true, the widget will fill be allowed to fill the entire space given it, otherwise it will contain an automatic padding of around 10 pixels around it.
+	    "fill_size": false,
+	    // load external scripts
+	    "external_scripts": ["./lib/js/thirdparty/dimple.v2.1.3.min.js"],
+
+	    "settings": [
+				{
+				    "name": "title",
+				    "display_name": "Title",
+				    "type": "text"
+				},
+				{
+				    "name": "data",
+				    "display_name": "Data",
+				    "type": "calculated"
+				},
+				{
+				    "name": "x-axis",
+				    "display_name": "X Axis",
+				    "description": "comma separated list of data attrubutes to use for x axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "x-axisType",
+				    "display_name": "X Axis Type",
+				    "description": "Indicates data type of X axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Category Axis",
+						    "value": "category"
+						},
+						{
+						    "name": "Time Axis",
+						    "value": "time"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "x-axisOptions",
+				    "display_name": "X Axis Options",
+				    "description": "options for axis types: Percent (categories), Time (inputFormat, outputFormat), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "x-axis-order-rules",
+				    "display_name": "X Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order x-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "x-axis-order-descending",
+				    "display_name": "X Axis Order Descending",
+				    "description": "Order x-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "y-axis",
+				    "display_name": "Y Axis",
+				    "description": "comma separated list of data attrubutes to use for y axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "y-axisType",
+				    "display_name": "Y Axis Type",
+				    "description": "Indicates data type of Y axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Category Axis",
+						    "value": "category"
+						},
+						{
+						    "name": "Time Axis",
+						    "value": "time"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "y-axisOptions",
+				    "display_name": "Y Axis Options",
+				    "description": "options for axis types: Percent (categories), Time (inputFormat, outputFormat), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "y-axis-order-rules",
+				    "display_name": "Y Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order y-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "y-axis-order-descending",
+				    "display_name": "Y Axis Order Descending",
+				    "description": "Order y-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "categories",
+				    "display_name": "Categories",
+				    "type": "text"
+				},
+				{
+				    "name": "category-order-rules",
+				    "display_name": "Category Order Rules",
+				    "description": "Attribute name, array, or function to use to order Categories.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "category-order-descending",
+				    "display_name": "Category Order Descending",
+				    "description": "Order categories in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "chart-smoothing",
+				    "display_name": "Smooth Chart",
+				    "description": "Add smoothing to graph lines (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "bounds",
+				    "display_name": "Chart Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+				{
+				    "name": "legend",
+				    "display_name": "Legend Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+
+				{
+				    "name": "size",
+				    "display_name": "Size",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Regular",
+						    "value": "regular"
+						},
+						{
+						    "name": "Big",
+						    "value": "big"
+						},
+						{
+						    "name": "Huge",
+						    "value": "huge"
+						}
+
+				    ]
+				}
+
+	    ],
+	    // Same as with datasource plugin, but there is no updateCallback parameter in this case.
+	    newInstance: function (settings, newInstanceCallback) {
+	        settings.chartType = "dimple.plot.line";
+	        newInstanceCallback(new dimpleJSChart(settings));
+	    }
+	});
+
+    // ## DimpleJS Area Chart
+	freeboard.loadWidgetPlugin({
+	    // Same stuff here as with datasource plugin.
+	    "type_name": "dimplejs-area-chart",
+	    "display_name": "DimpleJS Area Chart",
+	    "description": "Some sort of description <strong>with optional html!</strong>",
+	    // **fill_size** : If this is set to true, the widget will fill be allowed to fill the entire space given it, otherwise it will contain an automatic padding of around 10 pixels around it.
+	    "fill_size": false,
+	    // load external scripts
+	    "external_scripts": ["./lib/js/thirdparty/dimple.v2.1.3.min.js"],
+
+	    "settings": [
+				{
+				    "name": "title",
+				    "display_name": "Title",
+				    "type": "text"
+				},
+				{
+				    "name": "data",
+				    "display_name": "Data",
+				    "type": "calculated"
+				},
+				{
+				    "name": "x-axis",
+				    "display_name": "X Axis",
+				    "description": "comma separated list of data attrubutes to use for x axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "x-axisType",
+				    "display_name": "X Axis Type",
+				    "description": "Indicates data type of X axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Category Axis",
+						    "value": "category"
+						},
+						{
+						    "name": "Time Axis",
+						    "value": "time"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "x-axisOptions",
+				    "display_name": "X Axis Options",
+				    "description": "options for axis types: Percent (categories), Time (inputFormat, outputFormat), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "x-axis-order-rules",
+				    "display_name": "X Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order x-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "x-axis-order-descending",
+				    "display_name": "X Axis Order Descending",
+				    "description": "Order x-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "y-axis",
+				    "display_name": "Y Axis",
+				    "description": "comma separated list of data attrubutes to use for y axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "y-axisType",
+				    "display_name": "Y Axis Type",
+				    "description": "Indicates data type of Y axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Category Axis",
+						    "value": "category"
+						},
+						{
+						    "name": "Time Axis",
+						    "value": "time"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "y-axisOptions",
+				    "display_name": "Y Axis Options",
+				    "description": "options for axis types: Percent (categories), Time (inputFormat, outputFormat), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "y-axis-order-rules",
+				    "display_name": "Y Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order y-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "y-axis-order-descending",
+				    "display_name": "Y Axis Order Descending",
+				    "description": "Order y-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "categories",
+				    "display_name": "Categories",
+				    "type": "text"
+				},
+				{
+				    "name": "category-order-rules",
+				    "display_name": "Category Order Rules",
+				    "description": "Attribute name, array, or function to use to order Categories.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "category-order-descending",
+				    "display_name": "Category Order Descending",
+				    "description": "Order categories in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "chart-smoothing",
+				    "display_name": "Smooth Chart",
+				    "description": "Add smoothing to graph lines (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "bounds",
+				    "display_name": "Chart Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+				{
+				    "name": "legend",
+				    "display_name": "Legend Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+
+				{
+				    "name": "size",
+				    "display_name": "Size",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Regular",
+						    "value": "regular"
+						},
+						{
+						    "name": "Big",
+						    "value": "big"
+						},
+						{
+						    "name": "Huge",
+						    "value": "huge"
+						}
+
+				    ]
+				}
+
+	    ],
+	    // Same as with datasource plugin, but there is no updateCallback parameter in this case.
+	    newInstance: function (settings, newInstanceCallback) {
+	        settings.chartType = "dimple.plot.area";
+	        newInstanceCallback(new dimpleJSChart(settings));
+	    }
+	});
+
+    // ## DimpleJS Bubble Line Chart
+	freeboard.loadWidgetPlugin({
+	    // Same stuff here as with datasource plugin.
+	    "type_name": "dimplejs-chart",
+	    "display_name": "DimpleJS Chart",
+	    "description": "Some sort of description <strong>with optional html!</strong>",
+	    // **fill_size** : If this is set to true, the widget will fill be allowed to fill the entire space given it, otherwise it will contain an automatic padding of around 10 pixels around it.
+	    "fill_size": false,
+	    // load external scripts
+	    "external_scripts": ["./lib/js/thirdparty/dimple.v2.1.3.min.js"],
+
+	    "settings": [
+				{
+				    "name": "title",
+				    "display_name": "Title",
+				    "type": "text"
+				},
+				{
+				    "name": "data",
+				    "display_name": "Data",
+				    "type": "calculated"
+				},
+				{
+				    "name": "x-axis",
+				    "display_name": "X Axis",
+				    "description": "comma separated list of data attrubutes to use for x axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "x-axisType",
+				    "display_name": "X Axis Type",
+				    "description": "Indicates data type of X axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Category Axis",
+						    "value": "category"
+						},
+						{
+						    "name": "Time Axis",
+						    "value": "time"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "x-axisOptions",
+				    "display_name": "X Axis Options",
+				    "description": "options for axis types: Percent (categories), Time (inputFormat, outputFormat), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "x-axis-order-rules",
+				    "display_name": "X Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order x-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "x-axis-order-descending",
+				    "display_name": "X Axis Order Descending",
+				    "description": "Order x-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "y-axis",
+				    "display_name": "Y Axis",
+				    "description": "comma separated list of data attrubutes to use for y axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "y-axisType",
+				    "display_name": "Y Axis Type",
+				    "description": "Indicates data type of Y axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Category Axis",
+						    "value": "category"
+						},
+						{
+						    "name": "Time Axis",
+						    "value": "time"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "y-axisOptions",
+				    "display_name": "Y Axis Options",
+				    "description": "options for axis types: Percent (categories), Time (inputFormat, outputFormat), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "y-axis-order-rules",
+				    "display_name": "Y Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order y-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "y-axis-order-descending",
+				    "display_name": "Y Axis Order Descending",
+				    "description": "Order y-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "z-axis",
+				    "display_name": "Z Axis",
+				    "description": "comma separated list of data attrubutes to use for z axis values",
+				    "type": "text"
+				},
+				{
+				    "name": "z-axisType",
+				    "display_name": "Z Axis Type",
+				    "description": "Indicates data type of Z axis",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Measure Axis",
+						    "value": "measure"
+						},
+						{
+						    "name": "Percent Axis",
+						    "value": "percent"
+						},
+						{
+						    "name": "Log Axis",
+						    "value": "log"
+						}
+				    ],
+				    "value": "measure"
+				},
+				{
+				    "name": "z-axisOptions",
+				    "display_name": "Z Axis Options",
+				    "description": "options for axis types: Percent (categories), Log (logBase)",
+				    "type": "text"
+				},
+				{
+				    "name": "z-axis-order-rules",
+				    "display_name": "Z Axis Order Rules",
+				    "description": "Attribute name, array, or function to use to order z-axis.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "z-axis-order-descending",
+				    "display_name": "Z Axis Order Descending",
+				    "description": "Order z-axis in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "categories",
+				    "display_name": "Categories",
+				    "type": "text"
+				},
+				{
+				    "name": "category-order-rules",
+				    "display_name": "Category Order Rules",
+				    "description": "Attribute name, array, or function to use to order Categories.",
+				    "type": "calculated"
+				},
+				{
+				    "name": "category-order-descending",
+				    "display_name": "Category Order Descending",
+				    "description": "Order categories in descending fashion (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "chart-smoothing",
+				    "display_name": "Smooth Chart",
+				    "description": "Add smoothing to graph lines (true, false).",
+				    "type": "boolean",
+				    "value": "false"
+				},
+				{
+				    "name": "bounds",
+				    "display_name": "Chart Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+				{
+				    "name": "legend",
+				    "display_name": "Legend Bounds",
+				    "description": "Comma separated string containing 4 values: x-origin, y-origin, width, height. Values can be indicated in px or % values.",
+				    "type": "text"
+				},
+
+				{
+				    "name": "size",
+				    "display_name": "Size",
+				    "type": "option",
+				    "options": [
+						{
+						    "name": "Regular",
+						    "value": "regular"
+						},
+						{
+						    "name": "Big",
+						    "value": "big"
+						},
+						{
+						    "name": "Huge",
+						    "value": "huge"
+						}
+
+				    ]
+				}
+
+	    ],
+	    // Same as with datasource plugin, but there is no updateCallback parameter in this case.
+	    newInstance: function (settings, newInstanceCallback) {
+	        settings.chartType = "dimple.plot.bubble";
+	        newInstanceCallback(new dimpleJSChart(settings));
+	    }
+	});
+
 
 	// ### Widget Implementation
 	//
